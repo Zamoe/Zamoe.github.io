@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zameer Mahomed - Engineering ePortfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        :root {
+            --bg: #e0e5ec;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            background: var(--bg);
+            color: #222;
+        }
+        header {
+            background: var(--bg);
+            color: #222;
+            padding: 1.5rem 0 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
+        }
+        header h1 {
+            margin: 0;
+            text-align: center;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0 0 0;
+        }
+        nav a {
+            color: #222;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2rem; /* More rounded */
+            background: #f5f5f5;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+            border: none;
+        }
+        nav a:hover, nav a:focus {
+            background: #e0e5ec;
+            color: #03723b;
+            box-shadow: 0 4px 16px rgba(60,60,100,0.12);
+        }
+        main {
+            max-width: 900px;
+            margin: 2.5rem auto 2rem auto;
+            padding: 0 1.5rem;
+        }
+        section {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.07);
+            margin-bottom: 2.5rem;
+            padding: 2rem 1.5rem;
+            border-left: none;
+        }
+        section h2 {
+            color: #222;
+            margin-top: 0;
+            background: transparent;
+            padding: 0.3rem 1rem;
+            display: inline-block;
+            border-left: none;
+            box-shadow: none;
+        }
+        section ul li strong {
+            color: #222;
+        }
+        a {
+            color: #222;
+        }
+        form {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+            max-width: 400px;
+        }
+        label {
+            font-weight: 500;
+            color: #222;
+        }
+        input, textarea {
+            padding: 0.6rem;
+            border: 1px solid #bdbdbd;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            background: #fff;
+            box-shadow: none;
+            transition: border 0.2s;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border: 1.5px solid #222;
+        }
+        textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+        button[type="submit"] {
+            background: #03723b;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 2rem; /* More rounded */
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
+            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+        }
+        button[type="submit"]:hover {
+            background: #025c2a;
+            color: #fff;
+            box-shadow: 0 4px 16px rgba(60,60,100,0.12);
+        }
+        footer {
+            text-align: center;
+            padding: 1.2rem 0;
+            background: var(--bg);
+            color: #222;
+            font-size: 1rem;
+            letter-spacing: 0.5px;
+            box-shadow: none;
+            border-top: none;
+        }
+        /* Carousel styles */
+        .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        .carousel-track {
+            display: flex;
+            overflow: hidden;
+            width: 320px;
+            height: 220px;
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.07);
+            background: #fff;
+        }
+        .carousel-item {
+            min-width: 320px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s;
+        }
+        .carousel-item img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 1rem;
+            margin-bottom: 0.5rem;
+            background: #e0e5ec;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
+            display: block;
+        }
+        .carousel-item h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .carousel-btn {
+            background: #03723b;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
+            transition: background 0.2s;
+        }
+        .carousel-btn:hover {
+            background: #025c2a;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border-radius: 1.5rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
+            text-decoration: none;
+            transition: box-shadow 0.2s, transform 0.2s;
+            padding: 1.2rem 1rem;
+        }
+        .project-card:hover {
+            box-shadow: 0 6px 24px rgba(60,60,100,0.18);
+            transform: translateY(-4px) scale(1.03);
+        }
+        .project-card img {
+            width: 160px;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            background: #e0e5ec;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
+            display: block;
+        }
+        .project-info h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            color: #03723b;
+            text-align: center;
+            font-family: var(--font-family-title, 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif);
+        }
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+        .contact-icon {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            background: #f7faf7;
+            border-radius: 1.5rem;
+            padding: 0.7rem 1.3rem;
+            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
+            text-decoration: none;
+            color: #03723b;
+            font-weight: 500;
+            font-size: 1.08rem;
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+        .contact-icon:hover {
+            background: #e0e5ec;
+            box-shadow: 0 4px 16px rgba(60,60,100,0.12);
+        }
+        .contact-icon img {
+            width: 28px;
+            height: 28px;
+            display: block;
+        }
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            main {
+                padding: 0 0.5rem;
+            }
+            section {
+                padding: 1.2rem 0.7rem;
+            }
+            .carousel-btn {
+                padding: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PCB background will be injected here -->
+    <div id="pcb-bg-container"></div>
+    <header>
+        <h1>Zameer Mahomed</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#qualifications">Qualifications</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Welcome</h2>
+            <p>
+                Hi, I'm Zameer! Take a look around into my Engineering journey as a Mechatronic Engineer.
+            </p>
+        </section>
+        <section id="about-me">
+            <h2>About Me</h2>
+            <p>
+                I am a born tinkerer, driven by curiosity. I love process of being able to create something from scratch and being able to learn more and more skills each time I do it. The intersection of hardware and software is where I like to be, being able to tangbily see interact with a creation. 
+            </p>
+        </section>
+        <section id="qualifications">
+            <h2>Qualifications</h2>
+            <ul>
+                <li>Final year student in a BSc in Mechatronic Engineering (Electrical), University of Cape Town</li>
+                <li>Relevant Coursework: Control Systems, Embedded Systems, Power Electronics, Signals Processing</li>
+            </ul>
+        </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <a class="project-card" href="projects/micromouse/micromouse.html">
+                    <img src="projects/micromouse/micromouse.jpg" alt="Micromouse Maze Solver" onerror="this.src='assets/img/placeholder.jpg';">
+                    <div class="project-info">
+                        <h3>Micromouse Maze Solver</h3>
+                    </div>
+                </a>
+                <a class="project-card" href="projects/penguin-protector/penguin.html">
+                    <img src="projects/penguin-protector/penguin.jpg" alt="Penguin Protector" onerror="this.src='assets/img/placeholder.jpg';">
+                    <div class="project-info">
+                        <h3>Penguin Protector</h3>
+                    </div>
+                </a>
+                <a class="project-card" href="projects/inkhome/inkhome.html">
+                    <img src="projects/inkhome/inkhome.jpg" alt="InkHome" onerror="this.src='assets/img/placeholder.jpg';">
+                    <div class="project-info">
+                        <h3>InkHome</h3>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section id="hobbies">
+            <h2>Hobbies</h2>
+            <p>
+                (Un)fortunately, most of my hobbies fall into engineering. As I said earlier I love tinkering, so in my own time I enjoy working with my hands, trying to bring ideas from my head into real life.
+            </p>
+            <ul>
+                <li>DIY electronics and robotics: In my spare time I enjoy building some of my own electronics ideas.</li>
+                <li>3D printing: I managed to get my hands on an Ender 3, I have been enjoying learning CAD design in Fusion 360, Blender, CURA and OnShape. 3D printing has been a game changer in bringing ideas to life.</li>
+                <li>Woodworking: I enjoy working with wood, the outcome of any wood project always has a unique and beautiful look. As a save up money, I like to build up my wood working tools, trying to improve my skills and get lost in the craft.</li>
+                <li>Photography and Videography: Adobe Premiere Pro, Photopea, Adobe After Effects and Blender.</li>
+                <li>Home Automation: Homeassitantifying everything that I can</li>
+                <li>ESPHome: I've ben building various ESP32 based projects, such as BLE presensce tracker, smart aquarium light, smart lamp and automatic shut off phone charger.</li>
+                <li>Working on cars: I have been rebuilidng a W203 C200K 4 Cylinder engine and automatic transmission, redoing an engine gasket, timing system and am now trying to recodnition the Torque Converter.</li>
+                <li>Padel and Soccer: I've always loved soccer but its been so fun to get into padel, both the social and competetive aspects of it.</li>
+            </ul>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-links">
+                <a href="https://www.linkedin.com/in/zameer-mahomed/" target="_blank" rel="noopener" class="contact-icon">
+                    <img src="assets/img/linkedin.svg" alt="LinkedIn" />
+                    LinkedIn
+                </a>
+                <a href="https://github.com/Zamoe" target="_blank" rel="noopener" class="contact-icon">
+                    <img src="assets/img/github.svg" alt="GitHub" />
+                    GitHub
+                </a>
+                <a href="assets/cv/ZameerMahomedCV.pdf" target="_blank" rel="noopener" class="contact-icon">
+                    <img src="assets/img/cv.svg" alt="CV" />
+                    CV
+                </a>
+            </div>
+            <div style="text-align:center; font-size:0.95rem; margin-top:1rem;">
+                Icons by 
+                <a target="_blank" href="https://icons8.com/icon/85044/linkedin">LinkedIn</a>, 
+                <a target="_blank" href="https://icons8.com/icon/62856/github">GitHub</a>, and 
+                <a target="_blank" href="https://icons8.com/icon/21278/resume">CV</a> 
+                from <a target="_blank" href="https://icons8.com">Icons8</a>
+            </div>
+        </section>
+    </main>    <footer>
+        <p>&copy; 2025 Zameer Mahomed. All rights reserved.</p>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script>
+        fetch('assets/html/pcb-bg.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('pcb-bg-container').innerHTML = html;
+            });
+    </script>
+    <script src="assets/js/pcb-bg.js"></script>
+    <script>
+        const track = document.querySelector('.carousel-track');
+        const items = document.querySelectorAll('.carousel-item');
+        let currentIndex = 0;
+
+        function showItem(index) {
+            track.style.transform = `translateX(${-index * 320}px)`;
+        }
+
+        document.getElementById('prevBtn').onclick = function() {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            showItem(currentIndex);
+        };
+        document.getElementById('nextBtn').onclick = function() {
+            currentIndex = (currentIndex + 1) % items.length;
+            showItem(currentIndex);
+        };
+
+        showItem(currentIndex);
+    </script>
+</body>
+</html>

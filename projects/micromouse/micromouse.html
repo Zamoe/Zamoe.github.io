@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Micromouse Maze Solver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="application/json" id="project-data">
+    {
+        "title": "Micromouse Maze Solver",
+        "image": "projects/micromouse/micromouse.png",
+        "link": "projects/micromouse/micromouse.html",
+        "description": "A robot that solves mazes autonomously."
+    }
+    </script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        :root {
+            --font-family-main: 'Aptos', 'Inter', 'Segoe UI', Arial, sans-serif;
+            --font-family-title: 'Aptos', 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
+            --text-color-main: #222;
+            --text-color-title: #03723b;
+            --project-box-bg: #f7faf7;
+            --page-bg: #f5f7fa;
+            --container-bg: #fff;
+        }
+        body {
+            background: var(--page-bg);
+            font-family: var(--font-family-main);
+            color: var(--text-color-main);
+        }
+        .project-container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: var(--container-bg);
+            border-radius: 2rem;
+            box-shadow: 0 2px 16px rgba(60,60,100,0.10);
+            padding: 2rem;
+        }
+        .project-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            color: var(--text-color-title);
+            font-family: var(--font-family-title);
+            letter-spacing: 0.02em;
+        }
+        .project-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .project-images img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
+            background: #e0e5ec;
+            transition: transform 0.2s;
+        }
+        .project-images img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 24px rgba(60,60,100,0.18);
+        }
+        .project-description,
+        .project-features {
+            background: var(--project-box-bg);
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(60,60,100,0.18);
+            padding: 1.5rem 1.7rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+            text-align: left;
+            font-family: var(--font-family-main);
+            color: var(--text-color-main);
+        }
+        .project-description {
+            font-size: 1rem; /* Slightly smaller */
+            line-height: 1.8;
+            color: #555;     /* Lighter text */
+            background: var(--project-box-bg);
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(60,60,100,0.18);
+            padding: 1.5rem 1.7rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+            text-align: left;
+            font-family: var(--font-family-main);
+        }
+        .project-features {
+            font-size: 1.08rem;
+            line-height: 1.6;
+        }
+        .project-features h3 {
+            margin-top: 0;
+            margin-bottom: 0.7rem;
+            font-size: 1.2rem;
+            color: var(--text-color-title);
+            font-family: var(--font-family-title);
+        }
+        .project-features ul {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2rem;
+            background: #03723b;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            font-family: var(--font-family-main);
+        }
+        .back-link:hover {
+            background: #025c2a;
+        }
+    </style>
+</head>
+<body>
+    <div id="pcb-bg-container"></div>
+    <div class="project-container">
+        <div class="project-title">Micromouse Maze Solver</div>
+        <div class="project-images">
+            <img src="micromouse.jpg" alt="Micromouse robot">
+            <img src="micromouse-maze.jpg" alt="Micromouse in maze">
+            <img src="micromouse-electronics.jpg" alt="Micromouse electronics">
+        </div>
+        <div class="project-description">
+            <p>
+                <strong>A robot that solves mazes autonomously.</strong>
+            </p>
+            <p>
+                As part of the UCT EEE3099S design course, I had to program the UCT designed Micromouse to autonomously solve an 8x8 maze.<br>
+                The robot hardware is run by an STM32 microcontroller, two geared DC motor driven wheels, and uses a set of Infrared Sensors and an Inertia Measurement Unit (IMU).
+            </p>
+            <p>
+                The project scope entailed coding the robot to utilize the raw data from the IMU and IR sensors to allow the robot to accurately and reliably know where it is at all times.<br>
+                The robot is then coded to use a flood-fill algorithm to navigate the maze and find the optimal path to the finish with the least amount of exploring.
+            </p>
+        </div>
+        <div class="project-features">
+            <h3>Key Features</h3>
+            <ul>
+                <li>Infrared wall sensor optimisation for navigation</li>
+                <li>Maze-solving algorithm (Flood Fill)</li>
+                <li>STM32 Programming through MatLab Simulink and Simscape</li>
+            </ul>
+        </div>
+        <a class="back-link" href="../../index.html">&#8592; Back to Portfolio</a>
+    </div>
+    <script>
+        fetch('../../assets/html/pcb-bg.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('pcb-bg-container').innerHTML = html;
+            });
+    </script>
+    <script src="../../assets/js/pcb-bg.js"></script>
+</body>
+</html>

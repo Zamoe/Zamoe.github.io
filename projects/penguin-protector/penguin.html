@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Penguin Protector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="application/json" id="project-data">
+    {
+        "title": "Penguin Protector",
+        "image": "projects/penguin-protector/penguin.jpg",
+        "link": "projects/penguin-protector/penguin.html", 
+        "description": "A project focused on protecting penguins using technology."
+    }
+    </script>
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        :root {
+            --font-family-main: 'Aptos', 'Inter', 'Segoe UI', Arial, sans-serif;
+            --font-family-title: 'Aptos', 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
+            --text-color-main: #222;
+            --text-color-title: #03723b;
+            --project-box-bg: #f7faf7;
+            --page-bg: #f5f7fa;
+            --container-bg: #fff;
+        }
+        body {
+            background: var(--page-bg);
+            font-family: var(--font-family-main);
+            color: var(--text-color-main);
+        }
+        .project-container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: var(--container-bg);
+            border-radius: 2rem;
+            box-shadow: 0 2px 16px rgba(60,60,100,0.10);
+            padding: 2rem;
+        }
+        .project-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            color: var(--text-color-title);
+            font-family: var(--font-family-title);
+            letter-spacing: 0.02em;
+        }
+        .project-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .project-images img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
+            background: #e0e5ec;
+            transition: transform 0.2s;
+        }
+        .project-images img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 24px rgba(60,60,100,0.18);
+        }
+        .project-description,
+        .project-features {
+            background: var(--project-box-bg);
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(60,60,100,0.18);
+            padding: 1.5rem 1.7rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+            text-align: left;
+            font-family: var(--font-family-main);
+            color: #555;
+        }
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .project-features {
+            font-size: 1.08rem;
+            line-height: 1.6;
+        }
+        .project-features h3 {
+            margin-top: 0;
+            margin-bottom: 0.7rem;
+            font-size: 1.2rem;
+            color: var(--text-color-title);
+            font-family: var(--font-family-title);
+        }
+        .project-features ul {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2rem;
+            background: #03723b;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            font-family: var(--font-family-main);
+        }
+        .back-link:hover {
+            background: #025c2a;
+        }
+    </style>
+</head>
+<body>
+    <div id="pcb-bg-container"></div>
+    <div class="project-container">
+        <div class="project-title">Penguin Protector</div>
+        <div class="project-images">
+            <img src="penguin.jpg" alt="Penguin Protector main image">
+            <!-- Add more images as needed, e.g. -->
+            <!-- <img src="penguin-feature.jpg" alt="Penguin Protector feature"> -->
+        </div>
+        <div class="project-description">
+            <p>
+                <strong>A project focused on protecting penguins using technology.</strong>
+            </p>
+            <p>
+                As part of the UCT EEE4113F course, the De Hoop Nature Reserve requested that the students of the course design a system to protect the enclosure of the African Penguins from animals breaking into the enclisure fence. As the detection subsystem, I designed an edge-computing system that uses a Raspberry Pi Zero 2W, with two Passive Infrared Motion Sensors and a raspberry PI IR camera to physically detect preadtors at the fence. The motion sensors pick up motion as an animal approches the fence and triggers the camera to record what is happening. The Raspberry Pi then uses a custom pipeline of machine learnign code that uses a yolov5 and tensforflow model to locally identify and classify the animal and if a predator is detected, will send a UART message to the deterrent subystem, as well as log the image and metadata to an online user-interface dashboard.
+            </p>
+        </div>
+        <div class="project-features">
+            <h3>Key Features</h3>
+            <ul>
+                <li>Custom Machine Learning models using TensorFlow and Yolov5</li>
+                <li>Machine Learning deployment for low spec hardware using TensorflowLite</li>
+                <li>Edge-Computing and optimisation for Raspberry Pi Zero</li>
+                <li>Python Backing</li>
+                <li>Motion Sensors and UART connectivity</li>
+            </ul>
+        </div>
+        <a class="back-link" href="../../index.html">&#8592; Back to Portfolio</a>
+    </div>
+    <div id="stl-viewer" style="width:400px; height:400px; margin:2rem auto;"></div>
+    <script>
+        fetch('../../assets/html/pcb-bg.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('pcb-bg-container').innerHTML = html;
+            });
+    </script>
+    <script src="../../assets/js/pcb-bg.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, 400/400, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({antialias:true});
+    renderer.setSize(400, 400);
+    document.getElementById('stl-viewer').appendChild(renderer.domElement);
+
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+
+    const loader = new THREE.STLLoader();
+    loader.load('model.stl', function (geometry) {
+        const material = new THREE.MeshPhongMaterial({ color: 0x03723b, specular: 0x111111, shininess: 200 });
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+        mesh.rotation.x = -Math.PI / 2;
+        camera.position.set(0, 0, 100);
+        controls.target.set(0, 0, 0);
+        controls.update();
+    });
+
+    const ambientLight = new THREE.AmbientLight(0x888888);
+    scene.add(ambientLight);
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(1,1,1).normalize();
+    scene.add(directionalLight);
+
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+    }
+    animate();
+    </script>
+</body>
+</html>
