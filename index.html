@@ -361,6 +361,54 @@
             justify-content: center;
             align-items: center;
         }
+        .experiences-list {
+            column-count: 2;
+            column-gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        .experience-box {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 1.5rem;
+            background: #f7faf7;
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(60,60,100,0.12);
+            padding: 1.2rem 1.5rem;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+        .experience-title {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .experience-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .experience-desc {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            font-family: var(--font-family-main, 'Segoe UI', Arial, sans-serif);
+        }
+        .experience-img {
+            width: 100%;
+            max-width: 320px;
+            margin: 1rem 0 0 0;
+            display: block;
+            border-radius: 0.8rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
+            background: #e0e5ec;
+            height: auto;
+        }
+        @media (max-width: 700px) {
+            .experiences-list {
+                column-count: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -427,6 +475,38 @@
                 </a>
             </div>
         </section>
+        <section id="experiences">
+            <h2>Experiences</h2>
+            <p>
+                Here are some of my most valuable experiences that have shaped my engineering journey so far.
+            </p>
+            <div class="experiences-list">
+                <div class="experience-box">
+                    <h3>
+                        <span class="experience-title">
+                            <img src="assets/img/internship.svg" alt="" class="experience-icon" onerror="this.style.display='none';">
+                            Engineering Internship at Triocon Engineering
+                        </span>
+                    </h3>
+                    <div class="experience-desc">
+                        I worked at Triocon Consulting Engineers to get a feel for the consulting world. At Triocon, I worked in the mechanical department doing HVAC calculations, but primarily spent my time in the electrical department where I worked on floorplans of the electrical systems of the entire building. This consisted of doing wiring layouts, DB board load balancing, and wiring layouts for an automated smart lighting system.
+                    </div>
+                    <img src="assets/img/internship.jpg" alt="Internship experience" class="experience-img" onerror="this.style.display='none';">
+                </div>
+                <div class="experience-box">
+                    <h3>
+                        <span class="experience-title">
+                            <img src="assets/img/volunteer.svg" alt="" class="experience-icon" onerror="this.style.display='none';">
+                            Maverick International
+                        </span>
+                    </h3>
+                    <div class="experience-desc">
+                        This was some of the most fun work I have done. At Maverick International, a packaging machine company, I worked on wiring two PLC panels for two sections of one of their massive machines. I had to follow blueprints and work on placing, wiring, and labelling the panels to a production grade. I also got to see some PLC programming. This experience really opened my eyes to how mechanics and electronics can intersect to create a smooth running machine.
+                    </div>
+                    <img src="assets/img/volunteer.jpg" alt="Volunteer experience" class="experience-img" onerror="this.style.display='none';">
+                </div>
+            </div>
+        </section>
         <section id="hobbies">
             <h2>Hobbies</h2>
             <p>
@@ -477,7 +557,7 @@
                         </span>
                     </h3>
                     <div class="hobby-desc">
-                        I like experimenting around in Adobe Premiere Pro, Photopea, Adobe After Effects, and Blender, but do not ask me to see anything beacause its never perfect in my eyes. I've also been trying to get into drones, doing some part-time commercial aerial shots and learning phototelemetry, but I am looking to get into FPV because its just cool and I could build my own one. 
+                        I like experimenting in Adobe Premiere Pro, Photopea, Adobe After Effects, and Blender, but do not ask me to show anything because it's never perfect in my eyes. I've also been trying to get into drones, doing some part-time commercial aerial shots and learning phototelemetry, but I am looking to get into FPV because it's just cool and I could build my own one.
                     </div>
                     <img src="assets/img/photography.jpg" alt="Photography example" class="hobby-img" onerror="this.style.display='none';">
                 </div>
@@ -513,7 +593,7 @@
                         </span>
                     </h3>
                     <div class="hobby-desc">
-                        I have been rebuilding a W203 C200K 4-cylinder engine and automatic transmission, redoing an engine gasket, timing system, and am now trying to recondition the torque converter. This car is my experiment, in the future I'd love to learn painting, welding and use it to rever-engineer as can-bus system. 
+                        I have been rebuilding a W203 C200K 4-cylinder engine and automatic transmission, redoing an engine gasket, timing system, and am now trying to recondition the torque converter. This car is my experiment; in the future, I'd love to learn painting, welding, and use it to reverse-engineer its CAN bus system.
                     </div>
                     <img src="assets/img/car-project.jpg" alt="Car project example" class="hobby-img" onerror="this.style.display='none';">
                 </div>
