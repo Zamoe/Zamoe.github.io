@@ -1,23 +1,31 @@
 <style>
     :root {
-        --pcb-trace-color: #37d67a;
-        --pcb-dot-color: #fff;
+        --pcb-trace-color: #0b4a26;
+        --pcb-dot-color: #ffffff39;
+        --pcb-dot-size: 5;
     }
     .pcb-bg-svg polyline {
         stroke: var(--pcb-trace-color);
     }
     .pcb-bg-svg circle {
         fill: var(--pcb-dot-color);
+        filter: url(#glow-dot);
+        opacity: 0.85;
+        transition: fill 0.2s;
     }
 </style>
 <div id="pcb-bg" style="position:fixed; inset:0; z-index:-1; width:100vw; height:100vh; overflow:hidden;">
-    <svg class="pcb-bg-svg" width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none" style="display:block;">
+    <svg class="pcb-bg-svg" width="100%" height="100%" viewBox="0 0 1200 800" preserveAspectRatio="none">
         <polyline id="trace1" points="0,150 300,150 300,650 1200,650" stroke-width="12" fill="none"/>
         <polyline id="trace2" points="0,400 500,400 500,100 1200,100" stroke-width="12" fill="none"/>
         <polyline id="trace3" points="0,700 700,700 700,300 1200,300" stroke-width="12" fill="none"/>
-        <circle id="dot1" r="14" opacity="0.85" />
-        <circle id="dot2" r="14" opacity="0.85" />
-        <circle id="dot3" r="14" opacity="0.85" />
+        <polyline id="trace4" points="1200,50 900,50 900,750 0,750" stroke-width="12" fill="none"/>
+        <polyline id="trace5" points="1200,500 1000,500 1000,200 0,200" stroke-width="12" fill="none"/>
+        <circle id="dot1" r="15" cx="0" cy="150"/>
+        <circle id="dot2" r="15" cx="0" cy="400"/>
+        <circle id="dot3" r="15" cx="0" cy="700"/>
+        <circle id="dot4" r="15" cx="1200" cy="50"/>
+        <circle id="dot5" r="15" cx="1200" cy="500"/>
         <defs>
             <filter id="glow-dot" x="-50%" y="-50%" width="200%" height="200%">
                 <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
@@ -53,16 +61,21 @@ function interpolatePoints(points, t) {
     return {x: points[points.length-1][0], y: points[points.length-1][1]};
 }
 
-function animateRect(rectId, points, duration, size) {
+function getCSSVariable(name, fallback) {
+    let val = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    return val ? parseFloat(val) : fallback;
+}
+
+function animateDot(dotId, points, duration) {
+    const size = getCSSVariable('--pcb-dot-size', 15);
     function step(ts) {
         let t = ((ts % duration) / duration);
         let pos = interpolatePoints(points, t);
-        let rect = document.getElementById(rectId);
-        if (rect) {
-            rect.setAttribute('width', size);
-            rect.setAttribute('height', size);
-            rect.setAttribute('x', pos.x - size/2);
-            rect.setAttribute('y', pos.y - size/2);
+        let dot = document.getElementById(dotId);
+        if (dot) {
+            dot.setAttribute('r', size);
+            dot.setAttribute('cx', pos.x);
+            dot.setAttribute('cy', pos.y);
         }
         requestAnimationFrame(step);
     }
@@ -70,8 +83,10 @@ function animateRect(rectId, points, duration, size) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    animateRect('dot1', [[0,150],[300,150],[300,650],[1200,650]], 4000, 12);
-    animateRect('dot2', [[0,400],[500,400],[500,100],[1200,100]], 5000, 12);
-    animateRect('dot3', [[0,700],[700,700],[700,300],[1200,300]], 3500, 12);
+    animateDot('dot1', [[0,150],[300,150],[300,650],[1200,650]], 4000);
+    animateDot('dot2', [[0,400],[500,400],[500,100],[1200,100]], 5000);
+    animateDot('dot3', [[0,700],[700,700],[700,300],[1200,300]], 3500);
+    animateDot('dot4', [[1200,50],[900,50],[900,750],[0,750]], 4200);
+    animateDot('dot5', [[1200,500],[1000,500],[1000,200],[0,200]], 3800);
 });
 </script>

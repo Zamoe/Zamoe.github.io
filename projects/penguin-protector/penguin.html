@@ -8,7 +8,7 @@
     {
         "title": "Penguin Protector",
         "image": "projects/penguin-protector/penguin.jpg",
-        "link": "projects/penguin-protector/penguin.html", 
+        "link": "projects/penguin-protector/penguin.html",
         "description": "A project focused on protecting penguins using technology."
     }
     </script>
@@ -112,6 +112,29 @@
         .back-link:hover {
             background: #025c2a;
         }
+        #stl-viewer {
+            width: 400px;
+            height: 400px;
+            margin: 2rem auto;
+            background: #f7faf7;
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .sketchfab-viewer {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: center;
+        }
+        .sketchfab-viewer iframe {
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
+            background: #f7faf7;
+        }
     </style>
 </head>
 <body>
@@ -119,31 +142,44 @@
     <div class="project-container">
         <div class="project-title">Penguin Protector</div>
         <div class="project-images">
-            <img src="penguin.jpg" alt="Penguin Protector main image">
-            <!-- Add more images as needed, e.g. -->
-            <!-- <img src="penguin-feature.jpg" alt="Penguin Protector feature"> -->
+            <img src="penguin.jpg" alt="Penguin Protector main image" onclick="openImageModal(this.src)">
+            <img src="sysdiag.png" alt="Penguin Protector feature" onclick="openImageModal(this.src)">
+            <img src="casing front.jpg" alt="Penguin Protector system" onclick="openImageModal(this.src)">
+            <img src="ml.jpeg" alt="Penguin Protector sensors" onclick="openImageModal(this.src)">
+            <!-- Add more as needed -->
+        </div>
+        <div class="sketchfab-viewer">
+            <iframe title="Penguin STL Model" frameborder="0" allowfullscreen
+                mozallowfullscreen="true" webkitallowfullscreen="true"
+                width="500" height="400"
+                src="https://sketchfab.com/3d-models/penguin-pi-v10-f62a0a36e78f4bcaab536681b0e7edad/embed">
+            </iframe>
         </div>
         <div class="project-description">
             <p>
                 <strong>A project focused on protecting penguins using technology.</strong>
             </p>
             <p>
-                As part of the UCT EEE4113F course, the De Hoop Nature Reserve requested that the students of the course design a system to protect the enclosure of the African Penguins from animals breaking into the enclisure fence. As the detection subsystem, I designed an edge-computing system that uses a Raspberry Pi Zero 2W, with two Passive Infrared Motion Sensors and a raspberry PI IR camera to physically detect preadtors at the fence. The motion sensors pick up motion as an animal approches the fence and triggers the camera to record what is happening. The Raspberry Pi then uses a custom pipeline of machine learnign code that uses a yolov5 and tensforflow model to locally identify and classify the animal and if a predator is detected, will send a UART message to the deterrent subystem, as well as log the image and metadata to an online user-interface dashboard.
+                As part of the UCT EEE4113F course, the De Hoop Nature Reserve requested that the students in the course design a system to protect the enclosure of the African Penguins from animals breaking into the enclosure fence. As the detection subsystem, I designed an edge-computing system that uses a Raspberry Pi Zero 2W, with two passive infrared motion sensors and a Raspberry Pi IR camera to physically detect predators at the fence. The motion sensors pick up movement as an animal approaches the fence and trigger the camera to record what is happening. The Raspberry Pi then uses a custom pipeline of machine learning code that uses a YOLOv5 and TensorFlow model to locally identify and classify the animal, and if a predator is detected, will send a UART message to the deterrent subsystem, as well as log the image and metadata to an online user-interface dashboard.
             </p>
         </div>
         <div class="project-features">
             <h3>Key Features</h3>
             <ul>
-                <li>Custom Machine Learning models using TensorFlow and Yolov5</li>
-                <li>Machine Learning deployment for low spec hardware using TensorflowLite</li>
-                <li>Edge-Computing and optimisation for Raspberry Pi Zero</li>
-                <li>Python Backing</li>
-                <li>Motion Sensors and UART connectivity</li>
+                <li>Custom machine learning models using TensorFlow and YOLOv5</li>
+                <li>Machine learning deployment for low-spec hardware using TensorFlow Lite</li>
+                <li>Edge computing and optimisation for Raspberry Pi Zero</li>
+                <li>Python backend</li>
+                <li>Motion sensors and UART connectivity</li>
             </ul>
         </div>
         <a class="back-link" href="../../index.html">&#8592; Back to Portfolio</a>
     </div>
-    <div id="stl-viewer" style="width:400px; height:400px; margin:2rem auto;"></div>
+    <!-- Image Modal -->
+    <div id="img-modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center;">
+        <span id="img-modal-close" style="position:absolute; top:30px; right:40px; font-size:2.5rem; color:#fff; cursor:pointer;">&times;</span>
+        <img id="img-modal-img" src="" alt="" style="max-width:90vw; max-height:80vh; border-radius:1.2rem; box-shadow:0 2px 24px rgba(0,0,0,0.25); background:#fff;">
+    </div>
     <script>
         fetch('../../assets/html/pcb-bg.html')
             .then(res => res.text())
@@ -152,43 +188,19 @@
             });
     </script>
     <script src="../../assets/js/pcb-bg.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/loaders/STLLoader.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/controls/OrbitControls.js"></script>
     <script>
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, 400/400, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({antialias:true});
-    renderer.setSize(400, 400);
-    document.getElementById('stl-viewer').appendChild(renderer.domElement);
-
-    const controls = new THREE.OrbitControls(camera, renderer.domElement);
-    controls.enableDamping = true;
-    controls.dampingFactor = 0.05;
-
-    const loader = new THREE.STLLoader();
-    loader.load('model.stl', function (geometry) {
-        const material = new THREE.MeshPhongMaterial({ color: 0x03723b, specular: 0x111111, shininess: 200 });
-        const mesh = new THREE.Mesh(geometry, material);
-        scene.add(mesh);
-        mesh.rotation.x = -Math.PI / 2;
-        camera.position.set(0, 0, 100);
-        controls.target.set(0, 0, 0);
-        controls.update();
-    });
-
-    const ambientLight = new THREE.AmbientLight(0x888888);
-    scene.add(ambientLight);
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(1,1,1).normalize();
-    scene.add(directionalLight);
-
-    function animate() {
-        requestAnimationFrame(animate);
-        controls.update();
-        renderer.render(scene, camera);
+    function openImageModal(src) {
+        document.getElementById('img-modal-img').src = src;
+        document.getElementById('img-modal').style.display = 'flex';
     }
-    animate();
+    document.getElementById('img-modal-close').onclick = function() {
+        document.getElementById('img-modal').style.display = 'none';
+    };
+    document.getElementById('img-modal').onclick = function(e) {
+        if (e.target === this) {
+            this.style.display = 'none';
+        }
+    };
     </script>
 </body>
 </html>

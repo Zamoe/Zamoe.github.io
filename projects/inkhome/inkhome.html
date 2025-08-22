@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InkHome</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <style>
+        body {
+            background: #f5f7fa;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #222;
+        }
+        .project-container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: #fff;
+            border-radius: 2rem;
+            box-shadow: 0 2px 16px rgba(60,60,100,0.10);
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        .project-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            color: #03723b;
+            font-family: 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
+            letter-spacing: 0.02em;
+        }
+        .project-images {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .project-images img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
+            background: #e0e5ec;
+            transition: transform 0.2s;
+        }
+        .project-images img:hover {
+            transform: scale(1.04);
+            box-shadow: 0 4px 24px rgba(60,60,100,0.18);
+        }
+        .project-description,
+        .project-features {
+            background: #f7faf7;
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(60,60,100,0.18);
+            padding: 1.5rem 1.7rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            letter-spacing: 0.02em;
+            text-align: left;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #555;
+        }
+        .project-description {
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+        .project-features {
+            font-size: 1.08rem;
+            line-height: 1.6;
+        }
+        .project-features h3 {
+            margin-top: 0;
+            margin-bottom: 0.7rem;
+            font-size: 1.2rem;
+            color: #03723b;
+            font-family: 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
+        }
+        .project-features ul {
+            margin: 0;
+            padding-left: 1.2rem;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2rem;
+            background: #03723b;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .back-link:hover {
+            background: #025c2a;
+        }
+        .sketchfab-viewer {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            display: flex;
+            justify-content: center;
+        }
+        .sketchfab-viewer iframe {
+            border-radius: 1.2rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
+            background: #f7faf7;
+        }
+    </style>
+</head>
+<body>
+    <div id="pcb-bg-container"></div>
+    <div class="project-container">
+        <div class="project-title">InkHome</div>
+        <div class="project-images">
+            <img src="inkhome.jpeg" alt="InkHome main image">
+            <!-- Add more images if needed -->
+        </div>
+        <div class="sketchfab-viewer">
+            <iframe title="InkHome 3D Model" frameborder="0" allowfullscreen
+                mozallowfullscreen="true" webkitallowfullscreen="true"
+                width="500" height="400"
+                src="https://sketchfab.com/models/da096bae30c148fdaa09534d8ece8a41/embed">
+            </iframe>
+        </div>
+        <div class="project-description">
+            <p>
+                <strong>InkHome is my smart home e-ink controller.</strong>
+            </p>
+            <p>
+                The problem with making everything voice and phone controlled is that they are always voice and phone controlled. My solution to this was to do what an engineer does and go full circle and reinvent the light switch. But this is no ordinary light switch; based off a build I saw on YouTube, I wanted to create a device that controls anything that is on my HomeAssistant. With an ESP32, E-ink display, buttons, rotary encoder, and an addressable LED strip, InkHome lets the user control any device or automation in HomeAssistant using the buttons or dial, using MQTT as the backend communication. The E-Ink display adds a sense of class, requiring ambient light to see it, giving the device a more realistic feel. It updates its icons as you use it with live device updates, current Spotify songs, and progress of automations. The LEDs animate around the button that you press and give real-time feedback for volume or song progress. It is then housed in a custom 3D printed snap-close enclosure with satisfying clicky buttons and a white insert in the front plate to diffuse the LEDs, and has a brass outer plate for a premium touch. I genuinely lost hair on this project, having to learn many skills for each and every part, and I am always improving on it, but I am happy with my glorified light switch. 
+            </p>
+        </div>
+        <div class="project-features">
+            <h3>Key Features</h3>
+            <ul>
+                <li>ESP32, E-ink Display, Buttons, Rotary Encoder, Addressable LED Strip</li>
+                <li>MQTT & HomeAssistant</li>
+                <li>Custom 3D printed enclosure</li>
+            </ul>
+        </div>
+        <a class="back-link" href="../../index.html">&#8592; Back to Portfolio</a>
+    </div>
+    <script>
+        fetch('../../assets/html/pcb-bg.html')
+            .then(res => res.text())
+            .then(html => {
+                document.getElementById('pcb-bg-container').innerHTML = html;
+            });
+    </script>
+    <script src="../../assets/js/pcb-bg.js"></script>
+</body>
+</html>

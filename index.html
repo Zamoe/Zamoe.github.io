@@ -47,7 +47,7 @@
             font-weight: 500;
             font-size: 1.1rem;
             padding: 0.7rem 1.5rem;
-            border-radius: 2rem; /* More rounded */
+            border-radius: 2rem;
             background: #f5f5f5;
             box-shadow: 0 2px 8px rgba(60,60,100,0.07);
             transition: background 0.2s, color 0.2s, box-shadow 0.2s;
@@ -120,7 +120,7 @@
             color: #fff;
             border: none;
             padding: 0.8rem 2rem;
-            border-radius: 2rem; /* More rounded */
+            border-radius: 2rem;
             font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
@@ -279,6 +279,87 @@
             .carousel-btn {
                 padding: 0.6rem;
             }
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            #home > div {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+        /* Replace your .hobbies-list style with this: */
+        .hobbies-list {
+            column-count: 2;
+            column-gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .hobby-box {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 1.5rem;
+            background: #f7faf7;
+            border-radius: 1rem;
+            box-shadow: 0 4px 24px rgba(60,60,100,0.12);
+            padding: 1.2rem 1.5rem;
+            box-sizing: border-box;
+            vertical-align: top;
+        }
+        .hobby-img {
+            width: 100%;
+            max-width: 320px;
+            margin: 1rem 0 0 0;
+            display: block;
+            border-radius: 0.8rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
+            background: #e0e5ec;
+            height: auto;
+        }
+        .hobby-title {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        .hobby-icon {
+            width: 28px;
+            height: 28px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .hobby-desc {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.7;
+            font-family: var(--font-family-main, 'Segoe UI', Arial, sans-serif);
+        }
+        @media (min-width: 700px) {
+            .hobbies-list {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .profile-img {
+            display: block;
+            margin: 1.2rem auto 0 auto;
+            width: 320px;
+            max-width: 90vw;
+            height: auto;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            border-radius: 2rem;
+            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
+            background: #e0e5ec;
+        }
+        .project-title,
+        section h2,
+        .hobby-box h3,
+        #home h1,
+        .project-info h3 {
+            text-align: center;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -286,35 +367,41 @@
     <!-- PCB background will be injected here -->
     <div id="pcb-bg-container"></div>
     <header>
-        <h1>Zameer Mahomed</h1>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about-me">About Me</a></li>
                 <li><a href="#qualifications">Qualifications</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
     <main>
         <section id="home">
-            <h2>Welcome</h2>
-            <p>
-                Hi, I'm Zameer! Take a look around into my Engineering journey as a Mechatronic Engineer.
-            </p>
+            <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
+                <img src="assets/img/profile.jpeg" alt="Zameer Mahomed" class="profile-img" onerror="this.style.display='none';">
+                <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+                    <h1 style="margin:0 0 1rem 0; font-size:2.2rem; color:#03723b; text-align:center; width:100%;">Zameer Mahomed</h1>
+                    <p style="text-align:center;">
+                        Hi, I'm Zameer! Take a look around at my engineering journey as a Mechatronic Engineer.
+                    </p>
+                </div>
+            </div>
         </section>
         <section id="about-me">
             <h2>About Me</h2>
             <p>
-                I am a born tinkerer, driven by curiosity. I love process of being able to create something from scratch and being able to learn more and more skills each time I do it. The intersection of hardware and software is where I like to be, being able to tangbily see interact with a creation. 
+                I am a born tinkerer, driven by curiosity. I love the process of being able to create something from scratch and being able to learn more and more skills each time I do it. The intersection of hardware and software is where I like to be, being able to tangibly see and interact with something that I have contributed to. Born and growing up partly in Gauteng, but now a resident Cape Townnian, I have learnt to love the fast life, but appreciate the slow life. However, I don't know how to ever answer the question of "where are you from?", so as a nice halfway I'll probably joke around and say Bloemfontien. I like to know a little about everything (I suffer from the jack of all trades is a master of none cliche), so over time am trying to become a master of all even though it doesn't rhyme .I am a very talkative person, but also a good listener, so if you ever talk to me, just know its going to be a long conversation. Anyways that's enough from me, please take a look around here, everything that I can document is around and don't hesitate to reach out (there's a contact section below)!
             </p>
         </section>
         <section id="qualifications">
             <h2>Qualifications</h2>
             <ul>
+                <li>NSC Matric with 6 distinctions.</li>
                 <li>Final year student in a BSc in Mechatronic Engineering (Electrical), University of Cape Town</li>
-                <li>Relevant Coursework: Control Systems, Embedded Systems, Power Electronics, Signals Processing</li>
+                <li>Relevant Coursework: Control Systems, Embedded Systems, Power Electronics, Signal Processing</li>
             </ul>
         </section>
         <section id="projects">
@@ -333,7 +420,7 @@
                     </div>
                 </a>
                 <a class="project-card" href="projects/inkhome/inkhome.html">
-                    <img src="projects/inkhome/inkhome.jpg" alt="InkHome" onerror="this.src='assets/img/placeholder.jpg';">
+                    <img src="projects/inkhome/inkhome.jpeg" alt="InkHome" onerror="this.src='assets/img/placeholder.jpg';">
                     <div class="project-info">
                         <h3>InkHome</h3>
                     </div>
@@ -343,18 +430,106 @@
         <section id="hobbies">
             <h2>Hobbies</h2>
             <p>
-                (Un)fortunately, most of my hobbies fall into engineering. As I said earlier I love tinkering, so in my own time I enjoy working with my hands, trying to bring ideas from my head into real life.
+                (Un)fortunately, most of my hobbies fall into engineering. As I said earlier, I love tinkering, so in my own time I enjoy working with my hands, trying to bring ideas from my head into real life.
             </p>
-            <ul>
-                <li>DIY electronics and robotics: In my spare time I enjoy building some of my own electronics ideas.</li>
-                <li>3D printing: I managed to get my hands on an Ender 3, I have been enjoying learning CAD design in Fusion 360, Blender, CURA and OnShape. 3D printing has been a game changer in bringing ideas to life.</li>
-                <li>Woodworking: I enjoy working with wood, the outcome of any wood project always has a unique and beautiful look. As a save up money, I like to build up my wood working tools, trying to improve my skills and get lost in the craft.</li>
-                <li>Photography and Videography: Adobe Premiere Pro, Photopea, Adobe After Effects and Blender.</li>
-                <li>Home Automation: Homeassitantifying everything that I can</li>
-                <li>ESPHome: I've ben building various ESP32 based projects, such as BLE presensce tracker, smart aquarium light, smart lamp and automatic shut off phone charger.</li>
-                <li>Working on cars: I have been rebuilidng a W203 C200K 4 Cylinder engine and automatic transmission, redoing an engine gasket, timing system and am now trying to recodnition the Torque Converter.</li>
-                <li>Padel and Soccer: I've always loved soccer but its been so fun to get into padel, both the social and competetive aspects of it.</li>
-            </ul>
+            <div class="hobbies-list">
+                <div class="hobby-box">
+                    <h3>
+                        <span class="hobby-title">
+                            <img src="assets/img/electronics.svg" alt="" class="hobby-icon" onerror="this.style.display='none';">
+                            DIY electronics and robotics
+                        </span>
+                    </h3>
+                    <div class="hobby-desc">
+                        In my spare time, I enjoy building some of my own electronics ideas.
+                    </div>
+                    <img src="assets/img/electronics-project.jpg" alt="DIY electronics example" class="hobby-img" onerror="this.style.display='none';">
+                </div>
+                <div class="hobby-box">
+                    <h3>
+                        <span class="hobby-title">
+                            <img src="assets/img/3dprint.svg" alt="" class="hobby-icon" onerror="this.style.display='none';">
+                            3D printing
+                        </span>
+                    </h3>
+                    <div class="hobby-desc">
+                        I managed to get my hands on an Ender 3. I have been enjoying learning CAD design in Fusion 360, Blender, CURA, and OnShape. 3D printing has been a game changer in bringing ideas to life.
+                    </div>
+                    <img src="assets/img/3dprint-example.jpg" alt="3D print example" class="hobby-img" onerror="this.style.display='none';">
+                </div>
+                <div class="hobby-box">
+                    <h3>
+                        <span class="hobby-title">
+                            <img src="assets/img/woodworking.svg" alt="" class="hobby-icon" onerror="this.style.display='none';">
+                            Woodworking
+                        </span>
+                    </h3>
+                    <div class="hobby-desc">
+                        I enjoy working with wood; the outcome of any wood project always has a unique and beautiful look. As I save up money, I like to build up my woodworking tools, trying to improve my skills and get lost in the craft.
+                    </div>
+                    <img src="assets/img/woodworking-project.jpg" alt="Woodworking example" class="hobby-img" onerror="this.style.display='none';">
+                </div>
+                <div class="hobby-box">
+                    <h3>
+                        <span class="hobby-title">
+                            <img src="assets/img/camera.svg" alt="" class="hobby-icon" onerror="this.style.display='none';">
+                            Photography and Videography
+                        </span>
+                    </h3>
+                    <div class="hobby-desc">
+                        I like experimenting around in Adobe Premiere Pro, Photopea, Adobe After Effects, and Blender, but do not ask me to see anything beacause its never perfect in my eyes. I've also been trying to get into drones, doing some part-time commercial aerial shots and learning phototelemetry, but I am looking to get into FPV because its just cool and I could build my own one. 
+                    </div>
+                    <img src="assets/img/photography.jpg" alt="Photography example" class="hobby-img" onerror="this.style.display='none';">
+                </div>
+                <div class="hobby-box">
+                    <h3>
+                        <span class="hobby-title">
+                            <img src="assets/img/home.svg" alt="" class="hobby-icon" onerror="this.style.display='none';">
+                            Home Automation
+                        </span>
+                    </h3>
+                    <div class="hobby-desc">
+                        Homeassistant-ifying everything that I can.
+                    </div>
+                    <img src="assets/img/home-project.jpg" alt="Home automation example" class="hobby-img" onerror="this.style.display='none';">
+                </div>
+                <div class="hobby-box">
+                    <h3>
+                        <span class="hobby-title">
+                            <img src="assets/img/esphome.svg" alt="" class="hobby-icon" onerror="this.style.display='none';">
+                            ESPHome
+                        </span>
+                    </h3>
+                    <div class="hobby-desc">
+                        I've been building various ESP32-based projects, such as a BLE presence tracker, smart aquarium light, smart lamp, and automatic shut-off phone charger.
+                    </div>
+                    <img src="assets/img/esphome-project.jpg" alt="ESPHome example" class="hobby-img" onerror="this.style.display='none';">
+                </div>
+                <div class="hobby-box">
+                    <h3>
+                        <span class="hobby-title">
+                            <img src="assets/img/car.svg" alt="" class="hobby-icon" onerror="this.style.display='none';">
+                            Working on cars
+                        </span>
+                    </h3>
+                    <div class="hobby-desc">
+                        I have been rebuilding a W203 C200K 4-cylinder engine and automatic transmission, redoing an engine gasket, timing system, and am now trying to recondition the torque converter. This car is my experiment, in the future I'd love to learn painting, welding and use it to rever-engineer as can-bus system. 
+                    </div>
+                    <img src="assets/img/car-project.jpg" alt="Car project example" class="hobby-img" onerror="this.style.display='none';">
+                </div>
+                <div class="hobby-box">
+                    <h3>
+                        <span class="hobby-title">
+                            <img src="assets/img/soccer.svg" alt="" class="hobby-icon" onerror="this.style.display='none';">
+                            Padel and Soccer
+                        </span>
+                    </h3>
+                    <div class="hobby-desc">
+                        I've always loved soccer, but it's been so fun to get into padel, both the social and competitive aspects of it. It's actually become quite addicting and is making me broke. I also really enjoy tennis and love to play it socially!
+                    </div>
+                    <img src="assets/img/padel-soccer.jpg" alt="Padel and Soccer example" class="hobby-img" onerror="this.style.display='none';">
+                </div>
+            </div>
         </section>
         <section id="contact">
             <h2>Contact</h2>
@@ -380,7 +555,8 @@
                 from <a target="_blank" href="https://icons8.com">Icons8</a>
             </div>
         </section>
-    </main>    <footer>
+    </main>
+    <footer>
         <p>&copy; 2025 Zameer Mahomed. All rights reserved.</p>
     </footer>
     <script src="assets/js/main.js"></script>
