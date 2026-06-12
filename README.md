@@ -1,6 +1,6 @@
 # My Engineering ePortfolio
 
-This is the repo my portfolio's code. To view the E-Portfolio please visit [](https://Zamoe.github.io)
+This is the repo my portfolio's code. To view the E-Portfolio please visit the site [here](https://Zamoe.github.io)
 
 Welcome to my engineering ePortfolio! This website showcases my background, skills, and projects in the field of engineering.
 
