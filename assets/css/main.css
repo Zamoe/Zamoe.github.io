@@ -1,0 +1,439 @@
+/* 
+================================================
+Google Fonts Import
+================================================
+*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700&display=swap');
+
+/* 
+================================================
+CSS Variables (Root)
+================================================
+*/
+:root {
+    --font-family-heading: 'Montserrat', 'Segoe UI', Arial, sans-serif;
+    --font-family-body: 'Inter', 'Segoe UI', Arial, sans-serif;
+
+    --color-primary: #03723b;
+    --color-primary-dark: #025c2a;
+    --color-text-main: #333;
+    --color-text-light: #555;
+    --color-background: #f8f9fa;
+    --color-surface: #ffffff;
+    --color-border: #dee2e6;
+    --color-shadow: rgba(60, 60, 100, 0.07);
+    --color-shadow-hover: rgba(60, 60, 100, 0.15);
+
+    --shadow-sm: 0 2px 8px var(--color-shadow);
+    --shadow-md: 0 4px 12px var(--color-shadow);
+    --shadow-lg: 0 6px 24px var(--color-shadow-hover);
+
+    --border-radius-sm: 0.5rem;
+    --border-radius-md: 1rem;
+    --border-radius-lg: 1.5rem;
+
+    --transition-fast: all 0.2s ease-in-out;
+}
+
+/* 
+================================================
+Global Styles
+================================================
+*/
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family-body);
+    margin: 0;
+    background: var(--color-background);
+    color: var(--color-text-main);
+    line-height: 1.7;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+    color: var(--color-primary);
+    margin-top: 0;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* 
+================================================
+Header and Navigation
+================================================
+*/
+header {
+    background: var(--color-surface);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow-sm);
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+header nav a {
+    color: var(--color-text-main);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2rem;
+    transition: var(--transition-fast);
+    border: 1px solid transparent;
+}
+
+header nav a:hover,
+header nav a:focus {
+    color: var(--color-primary);
+    background: #eafdf4;
+    border-color: var(--color-primary);
+}
+
+/* 
+================================================
+Main Content & Sections
+================================================
+*/
+main {
+    max-width: 900px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    background: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2.5rem;
+    padding: 2rem 2.5rem;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 
+================================================
+Footer
+================================================
+*/
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    background: var(--color-surface);
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+    margin-top: 3rem;
+    border-top: 1px solid var(--color-border);
+}
+
+/* 
+================================================
+Component: Home Section
+================================================
+*/
+#home .profile-img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: var(--shadow-lg);
+}
+
+#home h1 {
+    font-size: 2.5rem;
+    margin: 0 0 0.5rem 0;
+}
+
+/* 
+================================================
+Component: Project Cards
+================================================
+*/
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+    transition: var(--transition-fast);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-card .project-info {
+    padding: 1.5rem;
+}
+
+.project-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--color-text-main);
+    font-family: var(--font-family-heading);
+}
+
+/* 
+================================================
+Component: Experience & Hobby Boxes
+================================================
+*/
+.experiences-list,
+.hobbies-list {
+    column-count: 2;
+    column-gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.experience-box,
+.hobby-box {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    background: var(--color-background);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem;
+    box-sizing: border-box;
+    break-inside: avoid;
+}
+
+.experience-box h3,
+.hobby-box h3 {
+    font-size: 1.1rem;
+    color: var(--color-text-main);
+    margin-bottom: 0.75rem;
+}
+
+.experience-title,
+.hobby-title {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.experience-icon,
+.hobby-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.experience-desc,
+.hobby-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+.experience-img,
+.hobby-img {
+    margin-top: 1rem;
+    border-radius: var(--border-radius-sm);
+    box-shadow: var(--shadow-sm);
+}
+
+/* 
+================================================
+Component: Contact Section
+================================================
+*/
+.contact-links {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    background: var(--color-surface);
+    border-radius: 2rem;
+    padding: 0.7rem 1.5rem;
+    box-shadow: var(--shadow-md);
+    color: var(--color-text-main);
+    font-weight: 500;
+    font-size: 1rem;
+    transition: var(--transition-fast);
+}
+
+.contact-icon:hover {
+    background: #eafdf4;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-3px);
+    color: var(--color-primary);
+}
+
+.contact-icon img {
+    width: 24px;
+    height: 24px;
+}
+
+/* 
+================================================
+Project Page Specific Styles
+================================================
+*/
+.project-container {
+    max-width: 750px;
+    margin: 2.5rem auto;
+    background: var(--color-surface);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: 2.5rem;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.project-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.project-images img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-fast);
+}
+
+.project-images img:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-description,
+.project-features {
+    background: var(--color-background);
+    border-radius: var(--border-radius-md);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    color: var(--color-text-light);
+}
+
+.project-description p,
+.project-features ul {
+    margin: 0;
+}
+
+.project-features h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: var(--color-primary);
+}
+
+.project-features ul {
+    padding-left: 1.2rem;
+    line-height: 1.8;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 2rem;
+    background: var(--color-primary);
+    color: #fff;
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.back-link:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.sketchfab-viewer iframe {
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+    background: var(--color-background);
+    border: none;
+}
+
+/* 
+================================================
+Media Queries for Responsiveness
+================================================
+*/
+@media (max-width: 768px) {
+    main {
+        padding: 0 1rem;
+    }
+    section {
+        padding: 1.5rem;
+    }
+    header nav ul {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    .experiences-list,
+    .hobbies-list {
+        column-count: 1;
+    }
+}
+
+/*
+================================================
+PCB Background Canvas
+================================================
+*/
+#pcb-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place it behind all other content */
+    opacity: 0.15; /* Make it subtle */
+    background-color: var(--color-background);
+}

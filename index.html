@@ -3,417 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zameer Mahomed - Engineering ePortfolio</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <style>
-        :root {
-            --bg: #e0e5ec;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            background: var(--bg);
-            color: #222;
-        }
-        header {
-            background: var(--bg);
-            color: #222;
-            padding: 1.5rem 0 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
-        }
-        header h1 {
-            margin: 0;
-            text-align: center;
-            font-size: 2.2rem;
-            letter-spacing: 1px;
-        }
-        nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0 0 0;
-        }
-        nav a {
-            color: #222;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 1.1rem;
-            padding: 0.7rem 1.5rem;
-            border-radius: 2rem;
-            background: #f5f5f5;
-            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
-            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-            border: none;
-        }
-        nav a:hover, nav a:focus {
-            background: #e0e5ec;
-            color: #03723b;
-            box-shadow: 0 4px 16px rgba(60,60,100,0.12);
-        }
-        main {
-            max-width: 900px;
-            margin: 2.5rem auto 2rem auto;
-            padding: 0 1.5rem;
-        }
-        section {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(60,60,100,0.07);
-            margin-bottom: 2.5rem;
-            padding: 2rem 1.5rem;
-            border-left: none;
-        }
-        section h2 {
-            color: #222;
-            margin-top: 0;
-            background: transparent;
-            padding: 0.3rem 1rem;
-            display: inline-block;
-            border-left: none;
-            box-shadow: none;
-        }
-        section ul li strong {
-            color: #222;
-        }
-        a {
-            color: #222;
-        }
-        form {
-            margin-top: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-            max-width: 400px;
-        }
-        label {
-            font-weight: 500;
-            color: #222;
-        }
-        input, textarea {
-            padding: 0.6rem;
-            border: 1px solid #bdbdbd;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            background: #fff;
-            box-shadow: none;
-            transition: border 0.2s;
-        }
-        input:focus, textarea:focus {
-            outline: none;
-            border: 1.5px solid #222;
-        }
-        textarea {
-            min-height: 80px;
-            resize: vertical;
-        }
-        button[type="submit"] {
-            background: #03723b;
-            color: #fff;
-            border: none;
-            padding: 0.8rem 2rem;
-            border-radius: 2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
-            transition: background 0.2s, color 0.2s, box-shadow 0.2s;
-        }
-        button[type="submit"]:hover {
-            background: #025c2a;
-            color: #fff;
-            box-shadow: 0 4px 16px rgba(60,60,100,0.12);
-        }
-        footer {
-            text-align: center;
-            padding: 1.2rem 0;
-            background: var(--bg);
-            color: #222;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-            box-shadow: none;
-            border-top: none;
-        }
-        /* Carousel styles */
-        .carousel {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-            margin: 2rem 0;
-        }
-        .carousel-track {
-            display: flex;
-            overflow: hidden;
-            width: 320px;
-            height: 220px;
-            border-radius: 1.5rem;
-            box-shadow: 0 2px 12px rgba(60,60,100,0.07);
-            background: #fff;
-        }
-        .carousel-item {
-            min-width: 320px;
-            height: 220px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s;
-        }
-        .carousel-item img {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 1rem;
-            margin-bottom: 0.5rem;
-            background: #e0e5ec;
-            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
-            display: block;
-        }
-        .carousel-item h3 {
-            margin: 0;
-            font-size: 1.1rem;
-            text-align: center;
-        }
-        .carousel-btn {
-            background: #03723b;
-            color: #fff;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
-            transition: background 0.2s;
-        }
-        .carousel-btn:hover {
-            background: #025c2a;
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        .project-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #fff;
-            border-radius: 1.5rem;
-            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
-            text-decoration: none;
-            transition: box-shadow 0.2s, transform 0.2s;
-            padding: 1.2rem 1rem;
-        }
-        .project-card:hover {
-            box-shadow: 0 6px 24px rgba(60,60,100,0.18);
-            transform: translateY(-4px) scale(1.03);
-        }
-        .project-card img {
-            width: 160px;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 1rem;
-            margin-bottom: 1rem;
-            background: #e0e5ec;
-            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
-            display: block;
-        }
-        .project-info h3 {
-            margin: 0;
-            font-size: 1.15rem;
-            color: #03723b;
-            text-align: center;
-            font-family: var(--font-family-title, 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif);
-        }
-        .contact-links {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            margin: 1.5rem 0;
-        }
-        .contact-icon {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-            background: #f7faf7;
-            border-radius: 1.5rem;
-            padding: 0.7rem 1.3rem;
-            box-shadow: 0 2px 8px rgba(60,60,100,0.07);
-            text-decoration: none;
-            color: #03723b;
-            font-weight: 500;
-            font-size: 1.08rem;
-            transition: background 0.2s, box-shadow 0.2s;
-        }
-        .contact-icon:hover {
-            background: #e0e5ec;
-            box-shadow: 0 4px 16px rgba(60,60,100,0.12);
-        }
-        .contact-icon img {
-            width: 28px;
-            height: 28px;
-            display: block;
-        }
-        @media (max-width: 600px) {
-            nav ul {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            main {
-                padding: 0 0.5rem;
-            }
-            section {
-                padding: 1.2rem 0.7rem;
-            }
-            .carousel-btn {
-                padding: 0.6rem;
-            }
-            .profile-img {
-                width: 120px;
-                height: 120px;
-            }
-            #home > div {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-        /* Replace your .hobbies-list style with this: */
-        .hobbies-list {
-            column-count: 2;
-            column-gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .hobby-box {
-            display: inline-block;
-            width: 100%;
-            margin-bottom: 1.5rem;
-            background: #f7faf7;
-            border-radius: 1rem;
-            box-shadow: 0 4px 24px rgba(60,60,100,0.12);
-            padding: 1.2rem 1.5rem;
-            box-sizing: border-box;
-            vertical-align: top;
-        }
-        .hobby-img {
-            width: 100%;
-            max-width: 320px;
-            margin: 1rem 0 0 0;
-            display: block;
-            border-radius: 0.8rem;
-            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
-            background: #e0e5ec;
-            height: auto;
-        }
-        .hobby-title {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-        }
-        .hobby-icon {
-            width: 28px;
-            height: 28px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .hobby-desc {
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.7;
-            font-family: var(--font-family-main, 'Segoe UI', Arial, sans-serif);
-        }
-        @media (min-width: 700px) {
-            .hobbies-list {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-        .profile-img {
-            display: block;
-            margin: 1.2rem auto 0 auto;
-            width: 320px;
-            max-width: 90vw;
-            height: auto;
-            aspect-ratio: 1/1;
-            object-fit: cover;
-            border-radius: 2rem;
-            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
-            background: #e0e5ec;
-        }
-        .project-title,
-        section h2,
-        .hobby-box h3,
-        #home h1,
-        .project-info h3 {
-            text-align: center;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .experiences-list {
-            column-count: 2;
-            column-gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        .experience-box {
-            display: inline-block;
-            width: 100%;
-            margin-bottom: 1.5rem;
-            background: #f7faf7;
-            border-radius: 1rem;
-            box-shadow: 0 4px 24px rgba(60,60,100,0.12);
-            padding: 1.2rem 1.5rem;
-            box-sizing: border-box;
-            vertical-align: top;
-        }
-        .experience-title {
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-        }
-        .experience-icon {
-            width: 28px;
-            height: 28px;
-            display: inline-block;
-            vertical-align: middle;
-        }
-        .experience-desc {
-            font-size: 1rem;
-            color: #444;
-            line-height: 1.7;
-            font-family: var(--font-family-main, 'Segoe UI', Arial, sans-serif);
-        }
-        .experience-img {
-            width: 100%;
-            max-width: 320px;
-            margin: 1rem 0 0 0;
-            display: block;
-            border-radius: 0.8rem;
-            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
-            background: #e0e5ec;
-            height: auto;
-        }
-        @media (max-width: 700px) {
-            .experiences-list {
-                column-count: 1;
-            }
-        }
-    </style>
+    <title>Zameer Mahomed - Engineering ePortfolio</title>    
+    <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <!-- PCB background will be injected here -->
-    <div id="pcb-bg-container"></div>
+    <canvas id="pcb-bg"></canvas>
     <header>
         <nav>
             <ul>
@@ -429,9 +23,9 @@
     <main>
         <section id="home">
             <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 2rem;">
-                <img src="assets/img/profile.jpeg" alt="Zameer Mahomed" class="profile-img" onerror="this.style.display='none';">
-                <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center;">
-                    <h1 style="margin:0 0 1rem 0; font-size:2.2rem; color:#03723b; text-align:center; width:100%;">Zameer Mahomed</h1>
+                <img src="assets/img/profile.jpeg" alt="Zameer Mahomed" class="profile-img" onerror="this.style.display='none';" />
+                <div>
+                    <h1>Zameer Mahomed</h1>
                     <p style="text-align:center;">
                         Hi, I'm Zameer! Take a look around at my journey as a Mechatronic Engineer.
                     </p>
@@ -441,7 +35,7 @@
         <section id="about-me">
             <h2>About Me</h2>
             <p>
-                I am a born tinkerer, driven by curiosity. I love the process of being able to create something from scratch and being able to learn more and more skills each time I do it. The intersection of hardware and software is where I like to be, being able to tangibly see and interact with something that I have contributed to. Born and growing up partly in Gauteng, but now a resident Cape Townnian, I have learnt to love the fast life, but appreciate the slow life. However, I don't know how to ever answer the question of "where are you from?", so as a nice halfway I'll probably joke around and say Bloemfontien. I like to know a little about everything (I suffer from the jack of all trades is a master of none cliche), so over time am trying to become a master of all even though it doesn't rhyme .I am a very talkative person, but also a good listener, so if you ever talk to me, just know its going to be a long conversation. Anyways that's enough from me, please take a look around here, everything that I can document is around and don't hesitate to reach out (there's a contact section below)!
+                I am a born tinkerer, driven by curiosity. I love the process of being able to create something from scratch and being able to learn more and more skills each time I do it. The intersection of hardware and software is where I like to be, being able to tangibly see and interact with something that I am working on. Born and growing up partly in Gauteng, but now a resident Cape Townnian, I have learnt to love the fast life, but appreciate the slow life. I like to know a little about everything (I suffer from the jack of all trades is a master of none cliche), so over time am trying to become a master of all even though it doesn't rhyme. Anyways that's enough from me, please take a look around here, everything that I can document is around and don't hesitate to reach out (there's a contact section below).
             </p>
         </section>
         <section id="qualifications">
@@ -456,19 +50,19 @@
             <h2>Projects</h2>
             <div class="projects-grid">
                 <a class="project-card" href="projects/micromouse/micromouse.html">
-                    <img src="projects/micromouse/micromouse.jpg" alt="Micromouse Maze Solver" onerror="this.src='assets/img/placeholder.jpg';">
+                    <img src="projects/micromouse/micromouse.jpg" alt="Micromouse Maze Solver" onerror="this.src='assets/img/placeholder.jpg';" />
                     <div class="project-info">
                         <h3>Micromouse Maze Solver</h3>
                     </div>
                 </a>
                 <a class="project-card" href="projects/penguin-protector/penguin.html">
-                    <img src="projects/penguin-protector/penguin.jpg" alt="Penguin Protector" onerror="this.src='assets/img/placeholder.jpg';">
+                    <img src="projects/penguin-protector/penguin.jpg" alt="Penguin Protector" onerror="this.src='assets/img/placeholder.jpg';" />
                     <div class="project-info">
                         <h3>Penguin Protector</h3>
                     </div>
                 </a>
                 <a class="project-card" href="projects/inkhome/inkhome.html">
-                    <img src="projects/inkhome/inkhome.jpeg" alt="InkHome" onerror="this.src='assets/img/placeholder.jpg';">
+                    <img src="projects/inkhome/inkhome.jpeg" alt="InkHome" onerror="this.src='assets/img/placeholder.jpg';" />
                     <div class="project-info">
                         <h3>InkHome</h3>
                     </div>
@@ -628,11 +222,7 @@
                 </a>
             </div>
             <div style="text-align:center; font-size:0.95rem; margin-top:1rem;">
-                Icons by 
-                <a target="_blank" href="https://icons8.com/icon/85044/linkedin">LinkedIn</a>, 
-                <a target="_blank" href="https://icons8.com/icon/62856/github">GitHub</a>, and 
-                <a target="_blank" href="https://icons8.com/icon/21278/resume">CV</a> 
-                from <a target="_blank" href="https://icons8.com">Icons8</a>
+                Icons from <a target="_blank" href="https://icons8.com">Icons8</a>
             </div>
         </section>
     </main>
@@ -640,33 +230,6 @@
         <p>&copy; 2025 Zameer Mahomed. All rights reserved.</p>
     </footer>
     <script src="assets/js/main.js"></script>
-    <script>
-        fetch('assets/html/pcb-bg.html')
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById('pcb-bg-container').innerHTML = html;
-            });
-    </script>
     <script src="assets/js/pcb-bg.js"></script>
-    <script>
-        const track = document.querySelector('.carousel-track');
-        const items = document.querySelectorAll('.carousel-item');
-        let currentIndex = 0;
-
-        function showItem(index) {
-            track.style.transform = `translateX(${-index * 320}px)`;
-        }
-
-        document.getElementById('prevBtn').onclick = function() {
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-            showItem(currentIndex);
-        };
-        document.getElementById('nextBtn').onclick = function() {
-            currentIndex = (currentIndex + 1) % items.length;
-            showItem(currentIndex);
-        };
-
-        showItem(currentIndex);
-    </script>
 </body>
 </html>

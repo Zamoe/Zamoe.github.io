@@ -3,116 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>InkHome</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../assets/css/style.css">
-    <style>
-        body {
-            background: #f5f7fa;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #222;
-        }
-        .project-container {
-            max-width: 700px;
-            margin: 2rem auto;
-            background: #fff;
-            border-radius: 2rem;
-            box-shadow: 0 2px 16px rgba(60,60,100,0.10);
-            padding: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        .project-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 1.2rem;
-            text-align: center;
-            color: #03723b;
-            font-family: 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
-            letter-spacing: 0.02em;
-        }
-        .project-images {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-bottom: 2rem;
-        }
-        .project-images img {
-            width: 180px;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 1.2rem;
-            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
-            background: #e0e5ec;
-            transition: transform 0.2s;
-        }
-        .project-images img:hover {
-            transform: scale(1.04);
-            box-shadow: 0 4px 24px rgba(60,60,100,0.18);
-        }
-        .project-description,
-        .project-features {
-            background: #f7faf7;
-            border-radius: 1rem;
-            box-shadow: 0 4px 24px rgba(60,60,100,0.18);
-            padding: 1.5rem 1.7rem;
-            margin-top: 1rem;
-            margin-bottom: 2rem;
-            letter-spacing: 0.02em;
-            text-align: left;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            color: #555;
-        }
-        .project-description {
-            font-size: 1rem;
-            line-height: 1.8;
-        }
-        .project-features {
-            font-size: 1.08rem;
-            line-height: 1.6;
-        }
-        .project-features h3 {
-            margin-top: 0;
-            margin-bottom: 0.7rem;
-            font-size: 1.2rem;
-            color: #03723b;
-            font-family: 'Montserrat', 'Inter', 'Segoe UI', Arial, sans-serif;
-        }
-        .project-features ul {
-            margin: 0;
-            padding-left: 1.2rem;
-        }
-        .back-link {
-            display: inline-block;
-            margin-top: 1rem;
-            padding: 0.7rem 1.5rem;
-            border-radius: 2rem;
-            background: #03723b;
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background 0.2s;
-            font-family: 'Segoe UI', Arial, sans-serif;
-        }
-        .back-link:hover {
-            background: #025c2a;
-        }
-        .sketchfab-viewer {
-            width: 100%;
-            max-width: 600px;
-            margin: 2rem auto;
-            display: flex;
-            justify-content: center;
-        }
-        .sketchfab-viewer iframe {
-            border-radius: 1.2rem;
-            box-shadow: 0 2px 12px rgba(60,60,100,0.10);
-            background: #f7faf7;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="../../assets/css/main.css">
 </head>
 <body>
-    <div id="pcb-bg-container"></div>
+    <canvas id="pcb-bg"></canvas>
     <div class="project-container">
         <div class="project-title">InkHome</div>
         <div class="project-images">
@@ -121,7 +16,7 @@
         </div>
         <div class="sketchfab-viewer">
             <iframe title="InkHome 3D Model" frameborder="0" allowfullscreen
-                mozallowfullscreen="true" webkitallowfullscreen="true"
+                mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking"
                 width="500" height="400"
                 src="https://sketchfab.com/models/da096bae30c148fdaa09534d8ece8a41/embed">
             </iframe>
@@ -144,13 +39,6 @@
         </div>
         <a class="back-link" href="../../index.html">&#8592; Back to Portfolio</a>
     </div>
-    <script>
-        fetch('../../assets/html/pcb-bg.html')
-            .then(res => res.text())
-            .then(html => {
-                document.getElementById('pcb-bg-container').innerHTML = html;
-            });
-    </script>
     <script src="../../assets/js/pcb-bg.js"></script>
 </body>
 </html>
