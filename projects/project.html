@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+    <canvas id="pcb-bg"></canvas>
+    <div class="project-container">
+        <div id="project-title" class="project-title"></div>
+        
+        <div id="project-images" class="project-images">
+            <!-- Images will be injected here by JavaScript -->
+        </div>
+        
+        <div id="sketchfab-viewer" class="sketchfab-viewer" style="display: none;">
+            <!-- Sketchfab iframe will be injected here -->
+        </div>
+        
+        <div id="project-description" class="project-description">
+            <!-- Description will be injected here -->
+        </div>
+        
+        <div id="project-features" class="project-features" style="display: none;">
+            <h3>Key Features</h3>
+            <ul id="features-list">
+                <!-- Features will be injected here -->
+            </ul>
+        </div>
+        
+        <a class="back-link" href="../index.html#projects">&#8592; Back to Portfolio</a>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="img-modal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100vw; height:100vh; background:rgba(0,0,0,0.8); align-items:center; justify-content:center; flex-direction: column; gap: 1rem;">
+        <span id="img-modal-close" style="position:absolute; top:30px; right:40px; font-size:2.5rem; color:#fff; cursor:pointer;">&times;</span>
+        <img id="img-modal-img" src="" alt="" style="max-width:90vw; max-height:80vh; border-radius:1.2rem; box-shadow:0 2px 24px rgba(0,0,0,0.25); background:#fff;">
+        <div id="img-modal-caption" style="color: #fff; text-align: center; font-size: 1.1rem;"></div>
+    </div>
+
+    <!-- Project data and loader scripts -->
+    <script src="../assets/js/projects-data.js"></script>
+    <script src="../assets/js/project-loader.js"></script>
+
+    <!-- Background animation script -->
+    <script src="../assets/js/pcb-bg.js"></script>
+</body>
+</html>
